@@ -72,4 +72,24 @@ public class TipoGafeCtrl {
         }                
         return resp;
     }
+    
+    public boolean modi(TipoGafe obje) {
+        boolean resp = false;
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("PooPU");
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        TipoGafe lugar = null;
+        tx.begin();
+        try {
+            lugar = em.find(TipoGafe.class, obje.getCodiTipoGafe());
+            lugar.setNombTipoGafe(obje.getNombTipoGafe());
+            tx.commit();
+            resp = true;
+        } catch (Exception ex) {
+            tx.rollback();
+        }
+        em.close();
+        emf.close();
+        return resp;
+    }
 }

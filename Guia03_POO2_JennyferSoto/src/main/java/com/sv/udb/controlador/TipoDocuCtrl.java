@@ -72,4 +72,24 @@ public class TipoDocuCtrl {
         }                
         return resp;
     }
+     
+    public boolean modi(TipoDocu obje) {
+        boolean resp = false;
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("PooPU");
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        TipoDocu lugar = null;
+        tx.begin();
+        try {
+            lugar = em.find(TipoDocu.class, obje.getCodiTipoDocu());
+            lugar.setNombTipoDocu(obje.getNombTipoDocu());
+            tx.commit();
+            resp = true;
+        } catch (Exception ex) {
+            tx.rollback();
+        }
+        em.close();
+        emf.close();
+        return resp;
+    }
 }

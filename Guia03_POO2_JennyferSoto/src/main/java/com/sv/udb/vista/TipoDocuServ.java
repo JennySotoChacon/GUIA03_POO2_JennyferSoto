@@ -60,6 +60,14 @@ public class TipoDocuServ extends HttpServlet {
                      }
                     request.getRequestDispatcher("/TipoDocu.jsp").forward(request, response);
                 }
+                else if (CRUD.equals("Modificar")) {
+                    TipoDocu obje = new TipoDocu();
+                    obje.setNombTipoDocu(request.getParameter("nomb"));
+                    obje.setEsta(1);
+                    obje.setCodiTipoDocu(Long.parseLong(request.getParameter("codi")));
+                    mens = new TipoDocuCtrl().modi(obje) ? "Datos modificados" : "Datos no modificados";
+                    request.getRequestDispatcher("/TipoDocu.jsp").forward(request, response);
+                }
             }
             else
             {

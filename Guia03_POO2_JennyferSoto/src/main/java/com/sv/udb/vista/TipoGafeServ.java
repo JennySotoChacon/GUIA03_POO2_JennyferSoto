@@ -60,6 +60,14 @@ public class TipoGafeServ extends HttpServlet {
                      }
                     request.getRequestDispatcher("/TipoGafe.jsp").forward(request, response);
                 }
+                else if (CRUD.equals("Modificar")) {
+                    TipoGafe obje = new TipoGafe();
+                    obje.setNombTipoGafe(request.getParameter("nomb"));
+                    obje.setEsta(1);
+                    obje.setCodiTipoGafe(Long.parseLong(request.getParameter("codi")));
+                    mens = new TipoGafeCtrl().modi(obje) ? "Datos modificados" : "Datos no modificados";
+                    request.getRequestDispatcher("/TipoGafe.jsp").forward(request, response);
+                }
             }
             else
             {

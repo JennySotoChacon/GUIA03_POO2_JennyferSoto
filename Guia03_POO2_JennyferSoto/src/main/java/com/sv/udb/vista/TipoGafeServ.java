@@ -5,8 +5,8 @@
  */
 package com.sv.udb.vista;
 
-import com.sv.udb.controlador.TipoDocuCtrl;
-import com.sv.udb.modelo.TipoDocu;
+import com.sv.udb.controlador.TipoGafeCtrl;
+import com.sv.udb.modelo.TipoGafe;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
@@ -20,8 +20,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Owner
  */
-@WebServlet(name = "TipoDocuServ", urlPatterns = {"/TipoDocuServ"})
-public class TipoDocuServ extends HttpServlet {
+@WebServlet(name = "TipoGafeServ", urlPatterns = {"/TipoGafeServ"})
+public class TipoGafeServ extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,23 +38,22 @@ public class TipoDocuServ extends HttpServlet {
             if(esValido)
             {
                 String mens = "";
-                String CRUD = request.getParameter("tipoDocuBton");
+                String CRUD = request.getParameter("tipoGafeBton");
                 if(CRUD.equals("Guardar"))
                 {
-                    TipoDocu obje = new TipoDocu();
-                    obje.setNombTipoDocu(request.getParameter("nomb"));
+                    TipoGafe obje = new TipoGafe();
+                    obje.setNombTipoGafe(request.getParameter("nomb"));
                     obje.setFechAlta(new Date());
                     obje.setEsta(1);
-                    mens = new TipoDocuCtrl().guar(obje) ? "Datos guardados exitosamente" : "Datos NO guardados";
-                    request.getRequestDispatcher("/TipoDocu.jsp").forward(request, response);
+                    mens = new TipoGafeCtrl().guar(obje) ? "Datos guardados exitosamente" : "Datos NO guardados";
+                    request.getRequestDispatcher("/TipoGafe.jsp").forward(request, response);
                 }
             }
             else
             {
-                response.sendRedirect(request.getContextPath() + "/TipoDocu.jsp");
+                response.sendRedirect(request.getContextPath() + "/TipoGafe.jsp");
             }
-        }
-    
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

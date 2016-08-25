@@ -20,14 +20,18 @@
             <div class="container">
                 <h2>Usando JPA [Lugares de Acceso]</h2>
                 <div class="form-group">
+                    <input type="hidden" name="codi" id="codi" value="${codi}"/>
                     <label for="nomb">Nombre: </label>
-                    <input type="text" name="nomb" value=""/>
+                    <input type="text" name="nomb" value="${nomb}"/>
                 </div>
                 <div class="btn-group">
                     <input type="submit" name="lugaAcceBton" value="Guardar" class="btn btn-default" />
+                    <input type="submit" name="lugaAcceBton" value="Consultar" class="btn btn-default" />
+                    <input type="submit" name="lugaAcceBton" value="Modificar" class="btn btn-default" />
+                    <input type="submit" name="lugaAcceBton" value="Eliminar" class="btn btn-default" />
                 </div>
             </div>
-            <div class="panel panel-default"style="padding: 15px;">
+                <div class="panel panel-default"style="padding: 15px;">
                     <jsp:useBean id="LugaAcceCtrl" class="com.sv.udb.controlador.LugaAcceCtrl" scope="page"/>
                     <table class="table">
                         <thead>
@@ -47,7 +51,7 @@
                             </c:forEach>
                         </tbody>
                     </table>
-                 </div>
+            </div>
         </form>
     </body>
 </html>

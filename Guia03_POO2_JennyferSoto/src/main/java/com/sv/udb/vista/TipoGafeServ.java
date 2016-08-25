@@ -48,6 +48,18 @@ public class TipoGafeServ extends HttpServlet {
                     mens = new TipoGafeCtrl().guar(obje) ? "Datos guardados exitosamente" : "Datos NO guardados";
                     request.getRequestDispatcher("/TipoGafe.jsp").forward(request, response);
                 }
+                else if (CRUD.equals("Consultar")) {
+                    Long CodiLuga = Long.parseLong(request.getParameter("codiRadi") == null ? 
+                            "0" : request.getParameter("codiRadi"));
+                    TipoGafe objeLuga = new TipoGafeCtrl().get(CodiLuga);
+                    if(objeLuga != null)
+                    {
+                        //System.out.println(objeLuga.getCodiTipoGafe() +" "+objeLuga.getNombTipoGafe());
+                        request.setAttribute("codi", objeLuga.getCodiTipoGafe());
+                        request.setAttribute("nomb", objeLuga.getNombTipoGafe());
+                     }
+                    request.getRequestDispatcher("/TipoGafe.jsp").forward(request, response);
+                }
             }
             else
             {

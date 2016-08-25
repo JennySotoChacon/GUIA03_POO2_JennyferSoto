@@ -48,6 +48,18 @@ public class LugaAcceServ extends HttpServlet {
                     mens = new LugaAcceCtrl().guar(obje) ? "Datos guardados exitosamente" : "Datos NO guardados";
                     request.getRequestDispatcher("/index.jsp").forward(request, response);
                 }
+                else if (CRUD.equals("Consultar")) {
+                    Long CodiLuga = Long.parseLong(request.getParameter("codiRadi") == null ? 
+                            "0" : request.getParameter("codiRadi"));
+                    LugaAcce objeLuga = new LugaAcceCtrl().get(CodiLuga);
+                    if(objeLuga != null)
+                    {
+                        //System.out.println(objeLuga.getCodiLugaAcce() +" "+objeLuga.getNombLugaAcce());
+                        request.setAttribute("codi", objeLuga.getCodiLugaAcce());
+                        request.setAttribute("nomb", objeLuga.getNombLugaAcce());
+                     }
+                    request.getRequestDispatcher("/index.jsp").forward(request, response);
+                }
             }
             else
             {

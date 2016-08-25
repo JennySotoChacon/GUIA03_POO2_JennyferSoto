@@ -58,5 +58,20 @@ public class LugaAcceCtrl {
         return resp;
        
     }
+    //Para conseguir un determinado registro
+     public LugaAcce get(Long empId){
+        
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("PooPU");
+        EntityManager em = emf.createEntityManager();
+        LugaAcce resp = null;
+        
+        try{
+            resp = em.find(LugaAcce.class, empId);
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }                
+        return resp;
+    }
     
 }

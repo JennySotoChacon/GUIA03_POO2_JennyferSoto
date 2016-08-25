@@ -48,6 +48,18 @@ public class TipoDocuServ extends HttpServlet {
                     mens = new TipoDocuCtrl().guar(obje) ? "Datos guardados exitosamente" : "Datos NO guardados";
                     request.getRequestDispatcher("/TipoDocu.jsp").forward(request, response);
                 }
+                else if (CRUD.equals("Consultar")) {
+                    Long CodiLuga = Long.parseLong(request.getParameter("codiRadi") == null ? 
+                            "0" : request.getParameter("codiRadi"));
+                    TipoDocu objeLuga = new TipoDocuCtrl().get(CodiLuga);
+                    if(objeLuga != null)
+                    {
+                        //System.out.println(objeLuga.getCodiTipoDocu() +" "+objeLuga.getNombTipoDocu());
+                        request.setAttribute("codi", objeLuga.getCodiTipoDocu());
+                        request.setAttribute("nomb", objeLuga.getNombTipoDocu());
+                     }
+                    request.getRequestDispatcher("/TipoDocu.jsp").forward(request, response);
+                }
             }
             else
             {

@@ -57,4 +57,19 @@ public class TipoGafeCtrl {
         return resp;
        
     }
+    
+    public TipoGafe get(Long empId){
+        
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("PooPU");
+        EntityManager em = emf.createEntityManager();
+        TipoGafe resp = null;
+        
+        try{
+            resp = em.find(TipoGafe.class, empId);
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }                
+        return resp;
+    }
 }

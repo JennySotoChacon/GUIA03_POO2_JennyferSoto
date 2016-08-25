@@ -6,10 +6,13 @@
 package com.sv.udb.controlador;
 
 import com.sv.udb.modelo.TipoDocu;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -36,5 +39,22 @@ public class TipoDocuCtrl {
         em.close();
         emf.close();
         return resp;
+    }
+    public List<TipoDocu>  ConsTodo()
+    {
+        List<TipoDocu> resp = new ArrayList<>();
+          EntityManagerFactory emf = Persistence.createEntityManagerFactory("PooPU");
+           EntityManager em = emf.createEntityManager();
+        try
+        {
+          TypedQuery<TipoDocu> query =em.createNamedQuery("TipoDocu.findAll", TipoDocu.class);
+           resp = query.getResultList();
+        }
+        catch(Exception ex)
+        {
+            
+        }
+        return resp;
+       
     }
 }

@@ -3,7 +3,9 @@
     Created on : 24-ago-2016, 22:52:10
     Author     : Owner
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -26,6 +28,27 @@
                     <input type="submit" name="tipoDocuBton" value="Guardar" class="btn btn-default" />
                 </div>
             </div>
+            <div class="panel panel-default"style="padding: 15px;">
+                    <jsp:useBean id="TipoDocuCtrl" class="com.sv.udb.controlador.TipoDocuCtrl" scope="page"/>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Fecha Alta</th>
+                                 <th>Seleccione</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${TipoDocuCtrl.ConsTodo()}" var="fila">
+                                <tr>
+                                    <td><c:out value="${fila.nombTipoDocu}"></c:out></td>
+                                    <td><c:out value="${fila.fechAlta}"></c:out></td>
+                                    <td> <input type="radio" name="codiRadi" value="${fila.codiTipoDocu}"/></td>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
+                 </div>
         </form>
     </body>
 </html>

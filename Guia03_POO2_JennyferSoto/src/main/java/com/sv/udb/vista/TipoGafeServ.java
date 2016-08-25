@@ -68,6 +68,12 @@ public class TipoGafeServ extends HttpServlet {
                     mens = new TipoGafeCtrl().modi(obje) ? "Datos modificados" : "Datos no modificados";
                     request.getRequestDispatcher("/TipoGafe.jsp").forward(request, response);
                 }
+                else if (CRUD.equals("Eliminar")) {
+                    Long CodiLuga = Long.parseLong(request.getParameter("codiRadi") == null
+                            ? "0" : request.getParameter("codiRadi"));
+                    mens = new TipoGafeCtrl().elim(CodiLuga) ? "Datos Eliminados" : "Datos no eliminados";
+                    request.getRequestDispatcher("/TipoGafe.jsp").forward(request, response);
+                }
             }
             else
             {

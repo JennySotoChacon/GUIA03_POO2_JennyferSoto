@@ -7,6 +7,7 @@ package com.sv.udb.controlador;
 
 import com.sv.udb.modelo.LugaAcce;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -86,6 +87,31 @@ public class LugaAcceCtrl {
         {
             lugar = em.find(LugaAcce.class, obje.getCodiLugaAcce());
             lugar.setNombLugaAcce(obje.getNombLugaAcce());
+            tx.commit();
+            resp = true;
+        }
+        catch(Exception ex)
+        {
+            tx.rollback();
+        }
+        em.close();
+        emf.close();
+        return resp;
+    }
+     public boolean elim(Long empId)
+    {
+        boolean resp = false;
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("PooPU");
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        LugaAcce lugar = null;
+        tx.begin();
+        try
+        {
+            
+            lugar = em.find(LugaAcce.class, empId);
+            lugar.setEsta(0);
+            lugar.setFechBaja(new Date());
             tx.commit();
             resp = true;
         }

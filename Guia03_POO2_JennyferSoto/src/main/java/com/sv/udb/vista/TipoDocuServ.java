@@ -68,6 +68,12 @@ public class TipoDocuServ extends HttpServlet {
                     mens = new TipoDocuCtrl().modi(obje) ? "Datos modificados" : "Datos no modificados";
                     request.getRequestDispatcher("/TipoDocu.jsp").forward(request, response);
                 }
+                else if (CRUD.equals("Eliminar")) {
+                     Long CodiLuga = Long.parseLong(request.getParameter("codiRadi") == null
+                            ? "0" : request.getParameter("codiRadi"));
+                    mens = new TipoDocuCtrl().elim(CodiLuga) ? "Datos Eliminados" : "Datos no eliminados";
+                    request.getRequestDispatcher("/TipoDocu.jsp").forward(request, response);
+                }
             }
             else
             {

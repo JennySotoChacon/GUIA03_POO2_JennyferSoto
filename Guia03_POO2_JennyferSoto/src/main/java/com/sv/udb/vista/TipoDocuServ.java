@@ -38,7 +38,7 @@ public class TipoDocuServ extends HttpServlet {
             if(esValido)
             {
                 String mens = "";
-                String CRUD = request.getParameter("lugaAcceBton");
+                String CRUD = request.getParameter("tipoDocuBton");
                 if(CRUD.equals("Guardar"))
                 {
                     TipoDocu obje = new TipoDocu();

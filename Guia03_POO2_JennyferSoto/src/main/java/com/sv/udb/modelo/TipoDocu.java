@@ -55,49 +55,82 @@ public class TipoDocu implements Serializable {
     @Column(name = "esta")
     private Integer esta;
 
+    /**
+     * Método constructor de la clase
+     * No requiere parametros
+     */
     public TipoDocu() {
     }
-
+    /**
+     * Método constructor de la clase
+     * @param codiTipoDocu Long llave primera del objeto de clase TipoDocu
+     */
     public TipoDocu(Long codiTipoDocu) {
         this.codiTipoDocu = codiTipoDocu;
     }
-
+    /**
+     * Método get de la llave primaria
+     */
     public Long getCodiTipoDocu() {
         return codiTipoDocu;
     }
-
+    /**
+     * Método set de la llave primaria
+     * @param codiTipoDocu Long llave primaria del objeto
+     */
     public void setCodiTipoDocu(Long codiTipoDocu) {
         this.codiTipoDocu = codiTipoDocu;
     }
-
+    /**
+     * Método get del nombre del objeto de clase TipoDocu
+     */
     public String getNombTipoDocu() {
         return nombTipoDocu;
     }
-
+    /**
+     * Método set del nombre del objeto de clase TipoDocu
+     * @param nombTipoDocu String nombre del objeto
+     */
     public void setNombTipoDocu(String nombTipoDocu) {
         this.nombTipoDocu = nombTipoDocu;
     }
-
+    /**
+     * Método get de la fecha de inscripción del objeto de clase TipoDocu
+     */
     public Date getFechAlta() {
         return fechAlta;
     }
-
+    /**
+     * Método set de fecha de inscripción del objeto de clase TipoDocu
+     * @param fechAlta Date fecha de inscripción del objeto
+     */
     public void setFechAlta(Date fechAlta) {
         this.fechAlta = fechAlta;
     }
-
+    /**
+     * Método get de fecha de baja del objeto de clase TipoDocu
+     */
     public Date getFechBaja() {
         return fechBaja;
     }
-
+    /**
+     * Método set de fecha de baja del objeto de clase TipoDocu
+     * @param fechBaja Date fecha de baja del objeto
+     */
     public void setFechBaja(Date fechBaja) {
         this.fechBaja = fechBaja;
     }
-
+    /**
+     * Método get del estado del objeto de clase TipoDocu
+     * @return esta
+     */
     public Integer getEsta() {
         return esta;
     }
-
+    /**
+     * Método set del estado del objeto de clase TipoDocu
+     * @param esta int estado del objeto
+     */
     public void setEsta(Integer esta) {
         this.esta = esta;
     }

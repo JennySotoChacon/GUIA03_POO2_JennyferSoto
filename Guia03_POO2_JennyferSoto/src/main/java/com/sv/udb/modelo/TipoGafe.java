@@ -55,49 +55,81 @@ public class TipoGafe implements Serializable {
     @Column(name = "esta")
     private Integer esta;
 
+    /**
+     * Método constructor de la clase
+     * No requiere parámetros
+     */
     public TipoGafe() {
     }
-
+    /**
+     * Método constructor de la clase
+     * @param codiTipoGafe Long llave primera del objeto de clase TipoGafe
+     */
     public TipoGafe(Long codiTipoGafe) {
         this.codiTipoGafe = codiTipoGafe;
     }
-
+    /**
+     * Método get de la llave primaria
+     */
     public Long getCodiTipoGafe() {
         return codiTipoGafe;
     }
-
+    /**
+     * Método set de la llave primaria
+     * @param codiTipoGafe Long llave primaria del objeto
+     */
     public void setCodiTipoGafe(Long codiTipoGafe) {
         this.codiTipoGafe = codiTipoGafe;
     }
-
+    /**
+     * Método get del nombre del objeto de clase TipoGafe
+     */
     public String getNombTipoGafe() {
         return nombTipoGafe;
     }
-
+    /**
+     * Método set del nombre del objeto de clase TipoGafe
+     * @param nombTipoGafe String nombre del objeto
+     */
     public void setNombTipoGafe(String nombTipoGafe) {
         this.nombTipoGafe = nombTipoGafe;
     }
-
+    /**
+     * Método get de la fecha de inscripción
+     */
     public Date getFechAlta() {
         return fechAlta;
     }
-
+    /**
+     * Método set de la fecha de inscripción
+     * @param fechAlta Date fecha
+     */
     public void setFechAlta(Date fechAlta) {
         this.fechAlta = fechAlta;
     }
-
+    /**
+     * Método get de la fecha de baja del objeto de clase TipoGafe
+     */
     public Date getFechBaja() {
         return fechBaja;
     }
-
+    /**
+     * Método set de la fecha de baja del objeto de clase TipoGafe
+     * @param fechBaja Date fecha
+     */
     public void setFechBaja(Date fechBaja) {
         this.fechBaja = fechBaja;
     }
-
+    /**
+     * Método get del estado del objeto
+     */
     public Integer getEsta() {
         return esta;
     }
-
+    /**
+     * Método set del estado del objeto
+     * @param esta int código del estado
+     */
     public void setEsta(Integer esta) {
         this.esta = esta;
     }

@@ -55,49 +55,82 @@ public class LugaAcce implements Serializable {
     @Column(name = "esta")
     private Integer esta;
 
+    /**
+     * Método constructor de la clase LugaAcce
+     * No recibe parámetros
+     */
     public LugaAcce() {
     }
-
+    /**
+     * Método constructor de la clase LugaAcce
+     * @param codiLugaAcce Long llave primaria del objeto
+     */
     public LugaAcce(Long codiLugaAcce) {
         this.codiLugaAcce = codiLugaAcce;
     }
-
+    /**
+     * Método Get de la llave primaria
+     * No recibe parámetros
+     */
     public Long getCodiLugaAcce() {
         return codiLugaAcce;
     }
-
+    /**
+     * Método set de la llave primaria
+     * @param codiLugaAcce Long llave primaria del objeto
+     */
     public void setCodiLugaAcce(Long codiLugaAcce) {
         this.codiLugaAcce = codiLugaAcce;
     }
-
+    /**
+     * Método get del nombre del objeto de clase LugaAcce
+     */
     public String getNombLugaAcce() {
         return nombLugaAcce;
     }
-
+    /**
+     * Método set del nombre del objeto de clase LugaAcce
+     * @param nombLugaAcce String nombre
+     */
     public void setNombLugaAcce(String nombLugaAcce) {
         this.nombLugaAcce = nombLugaAcce;
     }
-
+    /**
+     * Método get de la fecha de inscripción del objeto de clase LugaAcce
+     */
     public Date getFechAlta() {
         return fechAlta;
     }
-
+    /**
+     * Métido set de la fecha de inscripción del objeto de clase LugaAcce
+     * @param fechAlta Date fecha de inscripción
+     */
     public void setFechAlta(Date fechAlta) {
         this.fechAlta = fechAlta;
     }
-
+    /**
+     * Método get de la fecha de baja del objeto de clase LugaAcce
+     */
     public Date getFechBaja() {
         return fechBaja;
     }
-
+    /**
+     * Método set de la fecha de baja del objeto de clase LugaAcce
+     * @param fechBaja Date fecha de baja
+     */
     public void setFechBaja(Date fechBaja) {
         this.fechBaja = fechBaja;
     }
-
+    /**
+     * Método get del estado del objeto de clase LugaAcce
+     */
     public Integer getEsta() {
         return esta;
     }
-
+    /**
+     * Método set del estado del objeto de clase LugaAcce
+     * @param esta int código de estado
+     */
     public void setEsta(Integer esta) {
         this.esta = esta;
     }

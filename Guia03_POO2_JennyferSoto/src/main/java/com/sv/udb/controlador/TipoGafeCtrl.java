@@ -20,6 +20,11 @@ import javax.persistence.TypedQuery;
  * @author Owner
  */
 public class TipoGafeCtrl {
+    /**
+     * Método para guardar un tipo de gafete en la base de datos
+     * @param obje TipoGafe objeto de tipo tipo de gafete
+     * @return resp boolean true si ha sido guardado exitosamente
+     */
     public boolean guar(TipoGafe obje)
     {
         boolean resp = false;
@@ -41,6 +46,10 @@ public class TipoGafeCtrl {
         emf.close();
         return resp;
     }
+    /**
+     * Método para consultar todos los tipos de documentos en la base de datos
+     * @return resp List lista de objetos de tipo TipoGafe
+     */
     public List<TipoGafe>  ConsTodo()
     {
         List<TipoGafe> resp = new ArrayList<>();
@@ -58,7 +67,11 @@ public class TipoGafeCtrl {
         return resp;
        
     }
-    
+    /**
+     * Método para obtener un solo registro de la base de datos
+     * @param empId Long llave primaria del registro que se desea obtener
+     * @return resp TipoGafe objeto de tipo tipo de gafete con todos los datos del registro
+     */
     public TipoGafe get(Long empId){
         
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("PooPU");
@@ -73,7 +86,11 @@ public class TipoGafeCtrl {
         }                
         return resp;
     }
-    
+    /**
+      * Método para modificar registros en la base de datos
+      * @param obje TipoGafe objeto de tipo tipo de gafete
+      * @return resp boolean true si ha sido modificado exitosamente
+      */
     public boolean modi(TipoGafe obje) {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("PooPU");
@@ -93,7 +110,11 @@ public class TipoGafeCtrl {
         emf.close();
         return resp;
     }
-    
+    /**
+      * Método para dar de baja registros actualizando su estado
+      * @param empId Long llave primaria del registro a modificar
+      * @return resp boolean true si ha sido eliminado exitosamente
+      */
     public boolean elim(Long empId)
     {
         boolean resp = false;

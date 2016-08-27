@@ -20,6 +20,11 @@ import javax.persistence.TypedQuery;
  * @author Owner
  */
 public class LugaAcceCtrl {
+    /**
+     * Método para guardar un lugar de acceso en la base de datos
+     * @param obje LugaAcce objeto de tipo lugar de acceso
+     * @return resp boolean true si ha sido guardado exitosamente
+     */
     public boolean guar(LugaAcce obje)
     {
         boolean resp = false;
@@ -41,25 +46,30 @@ public class LugaAcceCtrl {
         emf.close();
         return resp;
     }
+    /**
+     * Método para consultar todos los lugares de accesos en la base de datos
+     * @return resp List lista de objetos de tipo LugaAcce
+     */
     
     public List<LugaAcce>  ConsTodo()
     {
         List<LugaAcce> resp = new ArrayList<>();
-          EntityManagerFactory emf = Persistence.createEntityManagerFactory("PooPU");
-           EntityManager em = emf.createEntityManager();
-        try
-        {
-          TypedQuery<LugaAcce> query =em.createNamedQuery("LugaAcce.findAll", LugaAcce.class);
-           resp = query.getResultList();
-        }
-        catch(Exception ex)
-        {
-            
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("PooPU");
+        EntityManager em = emf.createEntityManager();
+        try {
+            TypedQuery<LugaAcce> query = em.createNamedQuery("LugaAcce.findAll", LugaAcce.class);
+            resp = query.getResultList();
+        } catch (Exception ex) {
+
         }
         return resp;
        
     }
-    //Para conseguir un determinado registro
+    /**
+     * Método para obtener un solo registro de la base de datos
+     * @param empId Long llave primaria del registro que se desea obtener
+     * @return resp LugaAcce objeto de tipo lugar de acceso con todos los datos del registro
+     */
      public LugaAcce get(Long empId){
         
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("PooPU");
@@ -74,7 +84,11 @@ public class LugaAcceCtrl {
         }                
         return resp;
     }
-    
+     /**
+      * Método para modificar registros en la base de datos
+      * @param obje LugaAcce objeto de tipo lugar de acceso
+      * @return resp boolean true si ha sido modificado exitosamente
+      */
      public boolean modi(LugaAcce obje)
     {
         boolean resp = false;
@@ -98,6 +112,11 @@ public class LugaAcceCtrl {
         emf.close();
         return resp;
     }
+     /**
+      * Método para dar de baja registros actualizando su estado
+      * @param empId Long llave primaria del registro a modificar
+      * @return resp boolean true si ha sido eliminado exitosamente
+      */
      public boolean elim(Long empId)
     {
         boolean resp = false;
